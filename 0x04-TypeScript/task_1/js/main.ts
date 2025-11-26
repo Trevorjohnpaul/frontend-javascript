@@ -50,21 +50,20 @@ function printTeacher({
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
 console.log(printTeacher({ firstName: "Alice", lastName: "Smith" })); // A. Smith
-
-// Interface for the constructor parameters
+// Interface for constructor parameters
 interface StudentConstructor {
   firstName: string;
   lastName: string;
 }
 
-// Interface for the class
+// Interface for class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class implementation
-class StudentClass implements StudentClassInterface {
+// Class definition as ALX expects
+class StudentClass {
   firstName: string;
   lastName: string;
 
