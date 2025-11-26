@@ -5,6 +5,7 @@ interface DirectorInterface {
   workDirectorTasks(): string;
 }
 
+// Teacher interface
 interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -39,24 +40,18 @@ class Teacher implements TeacherInterface {
   }
 }
 
-// Function createEmployee
 function createEmployee(salary: number | string): Director | Teacher {
-  let numericSalary: number;
-
   if (typeof salary === "string") {
-    numericSalary = parseInt(salary.replace("$", ""), 10);
-  } else {
-    numericSalary = salary;
+    salary = parseInt(salary.replace("$", ""), 10);
   }
 
-  if (numericSalary < 500) {
+  if (salary < 500) {
     return new Teacher();
   } else {
     return new Director();
   }
 }
 
-// Example usage
-console.log(createEmployee(200)); // Teacher instance
-console.log(createEmployee(1000)); // Director instance
-console.log(createEmployee("$500")); // Director instance
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee("$500"));
